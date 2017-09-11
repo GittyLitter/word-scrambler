@@ -8,7 +8,7 @@
 (function() {
  var textnodes = document.evaluate("//body//text()[not(ancestor::script) and not(ancestor::style)]", document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,null),
  node, text;
- var sites = new Array(" at ", " by ", " for ", " from ", " in ", " onto ", " of ", " to ", " with ", " the ", " and ", " or ", " a ", " into ");
+ var sites = new Array(" at ", " by ", " for ", " from ", " in ", " onto ", " of ", " to ", " with ", " the ", " and ", " or ", " a ", " into ", " if ");
  for(var i = 0; i < textnodes.snapshotLength; i++) {
  node = textnodes.snapshotItem(i);
  text = node.data;
@@ -26,6 +26,7 @@
  text = text.replace(/ or /i, sites[Math.round(Math.random()*(sites.length-1))]);
  text = text.replace(/ a /i, sites[Math.round(Math.random()*(sites.length-1))]);
  text = text.replace(/ into /i, sites[Math.round(Math.random()*(sites.length-1))]);
+ text = text.replace(/ if /i, sites[Math.random(Math.random()*(sites.length-1))]);
  node.data = text;
  }
 }).call(this);
